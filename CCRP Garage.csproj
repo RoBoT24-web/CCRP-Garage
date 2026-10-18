@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{6BD414D3-70FB-4459-ACCD-49973E18547D}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>CCRPGarage</RootNamespace>
+        <AssemblyName>CCRP Garage</AssemblyName>
+        <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+        <LangVersion>9</LangVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'ReleasePunch|AnyCPU' ">
+      <OutputPath>bin\ReleasePunch\</OutputPath>
+      <DefineConstants>RELEASEPUNCH</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'RF|AnyCPU' ">
+      <OutputPath>bin\RF\</OutputPath>
+      <DefineConstants>RF</DefineConstants>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release +|AnyCPU' ">
+      <OutputPath>bin\Release +\</OutputPath>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Include="Commands\GarageAddCommand.cs" />
+        <Compile Include="Commands\GarageAdminCommand.cs" />
+        <Compile Include="Commands\GarageMigrateCommand.cs" />
+        <Compile Include="Commands\GarageRetrieveCommand.cs" />
+        <Compile Include="Commands\GaragesCommand.cs" />
+        <Compile Include="Configuration.cs" />
+        <Compile Include="DatabaseManagers\DatabaseManager.cs" />
+        <Compile Include="DatabaseManagers\GarageManager.cs" />
+        <Compile Include="Enums\EDatabase.cs" />
+        <Compile Include="Enums\EResponse.cs" />
+        <Compile Include="EventListeners\PlayerEvent.cs" />
+        <Compile Include="EventListeners\ServerEvent.cs" />
+        <Compile Include="EventListeners\VehicleEvent.cs" />
+        <Compile Include="Models\PlayerGarage.cs" />
+        <Compile Include="PlayerComponent.cs" />
+        <Compile Include="Plugin.cs" />
+        <Compile Include="Models\Blacklist.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Utils\BlacklistUtil.cs" />
+    <Compile Include="Utils\Extensions.cs" />
+        <Compile Include="Utils\VehicleUtil.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="packages.config" />
+    </ItemGroup>
+    <ItemGroup>
+      <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\Libraries\Assembly-CSharp.dll</HintPath>
+      </Reference>
+      <Reference Include="com.rlabrecque.steamworks.net, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\Libraries\com.rlabrecque.steamworks.net.dll</HintPath>
+      </Reference>
+      <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\Libraries\Dapper.dll</HintPath>
+      </Reference>
+      <Reference Include="LiteDB">
+        <HintPath>..\..\..\Libraries\LiteDB.dll</HintPath>
+      </Reference>
+      <Reference Include="litedbasync, Version=0.0.11.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\Libraries\litedbasync.dll</HintPath>
+      </Reference>
+      <Reference Include="MySql.Data">
+        <HintPath>..\..\..\Libraries\MySql.Data.dll</HintPath>
+      </Reference>
+      <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+        <HintPath>..\..\..\Libraries\Newtonsoft.Json.dll</HintPath>
+      </Reference>
+      <Reference Include="RFRocketLibrary">
+        <HintPath>..\..\..\Libraries\RFRocketLibrary.dll</HintPath>
+      </Reference>
+      <Reference Include="Rocket.API, Version=4.9.3.4, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\Libraries\Rocket.API.dll</HintPath>
+      </Reference>
+      <Reference Include="Rocket.Core, Version=4.9.3.4, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\Libraries\Rocket.Core.dll</HintPath>
+      </Reference>
+      <Reference Include="Rocket.Unturned, Version=4.9.3.13, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\Libraries\Rocket.Unturned.dll</HintPath>
+      </Reference>
+      <Reference Include="SDG.NetTransport, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\Libraries\SDG.NetTransport.dll</HintPath>
+      </Reference>
+      <Reference Include="System" />
+      <Reference Include="System.Data" />
+      <Reference Include="System.Xml" />
+      <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\Libraries\UnityEngine.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\Libraries\UnityEngine.CoreModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\..\..\Libraries\UnityEngine.PhysicsModule.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+
+</Project>
